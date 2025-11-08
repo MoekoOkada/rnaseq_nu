@@ -1,0 +1,108 @@
+# start cold10d_1 
+TrimmomaticPE: Started with arguments:
+ -phred33 -threads 2 cold10d_1_R1.fastq.gz cold10d_1_R2.fastq.gz ../1_qc/cold10d_1_R1_clean.fastq.gz ../1_qc/cold10d_1_R1_unpair.fastq.gz ../1_qc/cold10d_1_R2_clean.fastq.gz ../1_qc/cold10d_1_R2_unpair.fastq.gz ILLUMINACLIP:../TruSeq-PE-all.fa:2:30:10 SLIDINGWINDOW:4:30 MINLEN:100
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 10 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 24940972 Both Surviving: 10183259 (40.83%) Forward Only Surviving: 4598823 (18.44%) Reverse Only Surviving: 2358071 (9.45%) Dropped: 7800819 (31.28%)
+TrimmomaticPE: Completed successfully
+# done cold10d_1  2024年 11月 9日 土曜日 13時35分04秒 JST
+# start cold10d_2 
+TrimmomaticPE: Started with arguments:
+ -phred33 -threads 2 cold10d_2_R1.fastq.gz cold10d_2_R2.fastq.gz ../1_qc/cold10d_2_R1_clean.fastq.gz ../1_qc/cold10d_2_R1_unpair.fastq.gz ../1_qc/cold10d_2_R2_clean.fastq.gz ../1_qc/cold10d_2_R2_unpair.fastq.gz ILLUMINACLIP:../TruSeq-PE-all.fa:2:30:10 SLIDINGWINDOW:4:30 MINLEN:100
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 10 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 24874417 Both Surviving: 9982141 (40.13%) Forward Only Surviving: 4736874 (19.04%) Reverse Only Surviving: 2280621 (9.17%) Dropped: 7874781 (31.66%)
+TrimmomaticPE: Completed successfully
+# done cold10d_2  2024年 11月 9日 土曜日 13時42分59秒 JST
+# start cold10d_3 
+TrimmomaticPE: Started with arguments:
+ -phred33 -threads 2 cold10d_3_R1.fastq.gz cold10d_3_R2.fastq.gz ../1_qc/cold10d_3_R1_clean.fastq.gz ../1_qc/cold10d_3_R1_unpair.fastq.gz ../1_qc/cold10d_3_R2_clean.fastq.gz ../1_qc/cold10d_3_R2_unpair.fastq.gz ILLUMINACLIP:../TruSeq-PE-all.fa:2:30:10 SLIDINGWINDOW:4:30 MINLEN:100
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 10 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 23864914 Both Surviving: 9816475 (41.13%) Forward Only Surviving: 4460329 (18.69%) Reverse Only Surviving: 2193169 (9.19%) Dropped: 7394941 (30.99%)
+TrimmomaticPE: Completed successfully
+# done cold10d_3  2024年 11月 9日 土曜日 13時51分04秒 JST
+# start control_1 
+TrimmomaticPE: Started with arguments:
+ -phred33 -threads 2 control_1_R1.fastq.gz control_1_R2.fastq.gz ../1_qc/control_1_R1_clean.fastq.gz ../1_qc/control_1_R1_unpair.fastq.gz ../1_qc/control_1_R2_clean.fastq.gz ../1_qc/control_1_R2_unpair.fastq.gz ILLUMINACLIP:../TruSeq-PE-all.fa:2:30:10 SLIDINGWINDOW:4:30 MINLEN:100
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 10 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 24370256 Both Surviving: 8835312 (36.25%) Forward Only Surviving: 4888638 (20.06%) Reverse Only Surviving: 2233686 (9.17%) Dropped: 8412620 (34.52%)
+TrimmomaticPE: Completed successfully
+# done control_1  2024年 11月 9日 土曜日 13時58分51秒 JST
+# start control_2 
+TrimmomaticPE: Started with arguments:
+ -phred33 -threads 2 control_2_R1.fastq.gz control_2_R2.fastq.gz ../1_qc/control_2_R1_clean.fastq.gz ../1_qc/control_2_R1_unpair.fastq.gz ../1_qc/control_2_R2_clean.fastq.gz ../1_qc/control_2_R2_unpair.fastq.gz ILLUMINACLIP:../TruSeq-PE-all.fa:2:30:10 SLIDINGWINDOW:4:30 MINLEN:100
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 10 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 24370256 Both Surviving: 8754467 (35.92%) Forward Only Surviving: 4790096 (19.66%) Reverse Only Surviving: 2296351 (9.42%) Dropped: 8529342 (35.00%)
+TrimmomaticPE: Completed successfully
+# done control_2  2024年 11月 9日 土曜日 14時06分38秒 JST
+# start control_3 
+TrimmomaticPE: Started with arguments:
+ -phred33 -threads 2 control_3_R1.fastq.gz control_3_R2.fastq.gz ../1_qc/control_3_R1_clean.fastq.gz ../1_qc/control_3_R1_unpair.fastq.gz ../1_qc/control_3_R2_clean.fastq.gz ../1_qc/control_3_R2_unpair.fastq.gz ILLUMINACLIP:../TruSeq-PE-all.fa:2:30:10 SLIDINGWINDOW:4:30 MINLEN:100
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATCTCGTATGCCGTCTTCTGCTTG'
+Using Long Clipping Sequence: 'TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC'
+Using Long Clipping Sequence: 'TTTTTTTTTTCAAGCAGAAGACGGCATACGA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+Using Long Clipping Sequence: 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCGATCT'
+Using Long Clipping Sequence: 'AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 10 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Read Pairs: 24436969 Both Surviving: 8788372 (35.96%) Forward Only Surviving: 4738783 (19.39%) Reverse Only Surviving: 2306020 (9.44%) Dropped: 8603794 (35.21%)
+TrimmomaticPE: Completed successfully
+# done control_3  2024年 11月 9日 土曜日 14時14分27秒 JST

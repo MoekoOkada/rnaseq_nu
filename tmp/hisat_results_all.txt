@@ -1,0 +1,108 @@
+# start cold10d_1
+10183259 reads; of these:
+  10183259 (100.00%) were paired; of these:
+    66015 (0.65%) aligned concordantly 0 times
+    9343545 (91.75%) aligned concordantly exactly 1 time
+    773699 (7.60%) aligned concordantly >1 times
+    ----
+    66015 pairs aligned concordantly 0 times; of these:
+      9689 (14.68%) aligned discordantly 1 time
+    ----
+    56326 pairs aligned 0 times concordantly or discordantly; of these:
+      112652 mates make up the pairs; of these:
+        58374 (51.82%) aligned 0 times
+        50598 (44.92%) aligned exactly 1 time
+        3680 (3.27%) aligned >1 times
+99.71% overall alignment rate
+[bam_sort_core] merging from 0 files and 2 in-memory blocks...
+# done cold10d_1  2024年 11月12日 火曜日 07時30分22秒 JST
+# start cold10d_2
+9982141 reads; of these:
+  9982141 (100.00%) were paired; of these:
+    68395 (0.69%) aligned concordantly 0 times
+    9261394 (92.78%) aligned concordantly exactly 1 time
+    652352 (6.54%) aligned concordantly >1 times
+    ----
+    68395 pairs aligned concordantly 0 times; of these:
+      9452 (13.82%) aligned discordantly 1 time
+    ----
+    58943 pairs aligned 0 times concordantly or discordantly; of these:
+      117886 mates make up the pairs; of these:
+        60486 (51.31%) aligned 0 times
+        53028 (44.98%) aligned exactly 1 time
+        4372 (3.71%) aligned >1 times
+99.70% overall alignment rate
+[bam_sort_core] merging from 0 files and 2 in-memory blocks...
+# done cold10d_2  2024年 11月12日 火曜日 07時34分02秒 JST
+# start cold10d_3
+9816475 reads; of these:
+  9816475 (100.00%) were paired; of these:
+    70556 (0.72%) aligned concordantly 0 times
+    9140337 (93.11%) aligned concordantly exactly 1 time
+    605582 (6.17%) aligned concordantly >1 times
+    ----
+    70556 pairs aligned concordantly 0 times; of these:
+      7555 (10.71%) aligned discordantly 1 time
+    ----
+    63001 pairs aligned 0 times concordantly or discordantly; of these:
+      126002 mates make up the pairs; of these:
+        72695 (57.69%) aligned 0 times
+        50017 (39.70%) aligned exactly 1 time
+        3290 (2.61%) aligned >1 times
+99.63% overall alignment rate
+[bam_sort_core] merging from 0 files and 2 in-memory blocks...
+# done cold10d_3  2024年 11月12日 火曜日 07時37分40秒 JST
+# start control_1
+8835312 reads; of these:
+  8835312 (100.00%) were paired; of these:
+    67000 (0.76%) aligned concordantly 0 times
+    8330984 (94.29%) aligned concordantly exactly 1 time
+    437328 (4.95%) aligned concordantly >1 times
+    ----
+    67000 pairs aligned concordantly 0 times; of these:
+      8840 (13.19%) aligned discordantly 1 time
+    ----
+    58160 pairs aligned 0 times concordantly or discordantly; of these:
+      116320 mates make up the pairs; of these:
+        64813 (55.72%) aligned 0 times
+        46775 (40.21%) aligned exactly 1 time
+        4732 (4.07%) aligned >1 times
+99.63% overall alignment rate
+[bam_sort_core] merging from 0 files and 2 in-memory blocks...
+# done control_1  2024年 11月12日 火曜日 07時40分52秒 JST
+# start control_2
+8754467 reads; of these:
+  8754467 (100.00%) were paired; of these:
+    79070 (0.90%) aligned concordantly 0 times
+    8244967 (94.18%) aligned concordantly exactly 1 time
+    430430 (4.92%) aligned concordantly >1 times
+    ----
+    79070 pairs aligned concordantly 0 times; of these:
+      14409 (18.22%) aligned discordantly 1 time
+    ----
+    64661 pairs aligned 0 times concordantly or discordantly; of these:
+      129322 mates make up the pairs; of these:
+        76863 (59.44%) aligned 0 times
+        47735 (36.91%) aligned exactly 1 time
+        4724 (3.65%) aligned >1 times
+99.56% overall alignment rate
+[bam_sort_core] merging from 0 files and 2 in-memory blocks...
+# done control_2  2024年 11月12日 火曜日 07時44分02秒 JST
+# start control_3
+8788372 reads; of these:
+  8788372 (100.00%) were paired; of these:
+    73225 (0.83%) aligned concordantly 0 times
+    8174836 (93.02%) aligned concordantly exactly 1 time
+    540311 (6.15%) aligned concordantly >1 times
+    ----
+    73225 pairs aligned concordantly 0 times; of these:
+      8375 (11.44%) aligned discordantly 1 time
+    ----
+    64850 pairs aligned 0 times concordantly or discordantly; of these:
+      129700 mates make up the pairs; of these:
+        77572 (59.81%) aligned 0 times
+        48274 (37.22%) aligned exactly 1 time
+        3854 (2.97%) aligned >1 times
+99.56% overall alignment rate
+[bam_sort_core] merging from 0 files and 2 in-memory blocks...
+# done control_3  2024年 11月12日 火曜日 07時47分15秒 JST
