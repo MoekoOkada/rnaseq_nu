@@ -1,10 +1,8 @@
 library(topGO)
 library(biomaRt)
 library(tidyverse)
-library(dplyr)
+library(stringr)
 library(ggplot2)
-
-setwd("~/Dropbox/0_Git/rnaseq2024/src/")
 
 # install annotation
 library("org.At.tair.db")
@@ -12,141 +10,65 @@ library("org.At.tair.db")
 head(toTable(org.At.tairGO))
 
 # read DEG list
-data <- read_table("DEGs.txt", col_names = FALSE)
-colnames(data) <- c("GeneID", "logFC", "logCPM", "PValue", "FDR")
-rownames(data) <- gsub("transcript:", "", rownames(data))
-head(data)
+# 期待する列: ID, logFC, logCPM, LR, PValue, FDR
+df_raw <- read_table("Comp.txt", col_names = TRUE, sep = "\t")
 
-# check which gene is deg
-colnames(data) <- c("V1")
-head(data)
+# 先頭列名が欠落していても動くように先頭列をIDにリネーム
+if (!"ID" %in% names(df_raw)) {
+  names(df_raw)[1] <- "ID"
+}
 
-deg <- mutate(gene, de = if_else(gene$geneNames %in% data$V1, true = TRUE, false = FALSE))
-row.names(deg) <- deg$geneNames
-summary(deg$de)
+# 列が不足している場合はここでエラーになる
+stopifnot(all(c("ID","logFC","logCPM","LR","PValue","FDR") %in% names(df_raw)))
 
-# create the gene universe (DEGs were converted to 0/1 value)
-DEGs <- as.numeric(deg$de)
-gene_universe <- factor(DEGs)
-names(gene_universe) <- rownames(deg)
+# 転写産物IDをTAIR遺伝子IDに合わせる（transcript: と .1 等の小数点以降を除去）
+df <- df_raw %>%
+  mutate(
+    Gene = ID %>%
+      str_replace("^transcript:", "") %>%
+      str_replace("\\.\\d+$", ""))
+
+# org.At.tair.db に存在する ID だけを背景に採用
+valid <- AnnotationDbi::keys(org.At.tair.db, keytype = "TAIR")
+df <- df %>% filter(TAIR %in% valid)
+
+# トランスクリプト重複 → 遺伝子代表（FDR最小）
+df <- df %>% arrange(TAIR, FDR) %>% distinct(TAIR, .keep_all = TRUE)
+
+# DEG判定
+# FDR < 0.01 かつ、２倍以上変動（|logFC| > 1）をDEGとする
+fdr_thresh <- 0.01
+df <- df %>% mutate(isDEG = FDR <= fdr_thresh & abs(logFC) > 1)
+
+# 6) gene universe（名前付き factor の 0/1）
+gene_universe <- factor(as.integer(df$isDEG))
+names(gene_universe) <- df$TAIR
+
+# 確認
+summary(gene_universe)   # 0/1の数
 head(gene_universe)
 
-# create the topGO data for BP
-BP <- new("topGOdata",
-  ontology = "BP",
-  allGenes = DEGs,
-  annotationFun = annFUN.org,
-  mapping = "org.At.tair.db",
-  ID = "TAIR"
-)
+## 7) topGO を小関数で（BP/MF/CC）
+run_topgo <- function(allGenes_vec, ontology) {
+  GO <- new("topGOdata",
+            ontology = ontology,
+            allGenes = allGenes_vec,
+            annotationFun = annFUN.org,
+            mapping = "org.At.tair.db",
+            ID = "TAIR")
+  test <- runTest(GO, algorithm = "elim", statistic = "fisher")
+  topN <- max(1, sum(score(test) < 0.05, na.rm = TRUE))
+  tab <- GenTable(GO, elimFisher = test,
+                  orderBy = "elimFisher", ranksOf = "elimFisher",
+                  topNodes = topN)
+  readr::write_tsv(tab, paste0("topGO_", ontology, "_table.txt"))
+  png(paste0("topGO_", ontology, ".png"), 1500, 1500)
+  par(cex = 0.5); showSigOfNodes(GO, score(test), useInfo = "def"); dev.off()
+  tab
+}
 
-BP
-
-
-# Run topGO with elim algorithm and fisher test
-BP_test <- runTest(BP, algorithm = "elim", statistic = "fisher")
-BP_test
-
-# Keep the results
-BP_Table <- GenTable(BP,
-  weightFisher = BP_test,
-  orderBy = "elimFisher", ranksOf = "elimFisher", topNodes = sum(score(BP_test) < .05)
-)
-head(BP_Table)
-nrow(BP_Table)
-BP_Table
-
-# BP_Table <- BP_Table[BP_Table$Annotated > 10, ]
-# BP_Table <- BP_Table[BP_Table$Annotated < 1001, ]
-# head(BP_Table)
-#
-# ### Recalculate p-value
-# BP_Table$pval <- p.adjust(BP_Table$weightFisher, method = c("BH"), n = nrow(BP_Table))
-# BP_Table$fdr <- p.adjust(BP_Table$weightFisher, method = c("fdr"), n = nrow(BP_Table))
-# BP_Table <- BP_Table[BP_Table$fdr < 0.05, ]
-#
-write.table(BP_Table, file = "topGO_BP_table.txt", sep = "\t", quote = F, col.names = T, row.names = F)
-
-png("topGO_BP.png", 1500, 1500)
-par(cex = 0.5)
-showSigOfNodes(BP, score(BP_test), useInfo = "def")
-dev.off()
-
-# create the topGO data
-MF <- new("topGOdata",
-  ontology = "MF",
-  allGenes = DEGs,
-  annotationFun = annFUN.org,
-  mapping = "org.At.tair.db",
-  ID = "TAIR"
-)
-
-MF
-
-# Run topGO with elim algorithm and fisher test
-MF_test <- runTest(MF, algorithm = "elim", statistic = "fisher")
-MF_test
-
-# Keep the results
-MF_Table <- GenTable(MF,
-  weightFisher = MF_test,
-  orderBy = "elimFisher", ranksOf = "elimFisher", topNodes = sum(score(MF_test) < .05)
-)
-head(MF_Table)
-nrow(MF_Table)
-
-# MF_Table <- MF_Table[MF_Table$Annotated > 10, ]
-# MF_Table <- MF_Table[MF_Table$Annotated < 1001, ]
-# head(MF_Table)
-#
-# ### Recalculate p-value
-# MF_Table$pval <- p.adjust(MF_Table$weightFisher, method = c("BH"), n = nrow(MF_Table))
-# MF_Table$fdr <- p.adjust(MF_Table$weightFisher, method = c("fdr"), n = nrow(MF_Table))
-# MF_Table <- MF_Table[MF_Table$fdr < 0.05, ]
-#
-write.table(MF_Table, file = "topGO_MF_table.txt", sep = "\t", quote = F, col.names = T, row.names = F)
-
-png("topGO_MF.png", 1500, 1500)
-par(cex = 0.5)
-showSigOfNodes(MF, score(MF_test), useInfo = "def")
-dev.off()
-
-
-# create the topGO data
-CC <- new("topGOdata",
-  ontology = "CC",
-  allGenes = DEGs,
-  annotationFun = annFUN.org,
-  mapping = "org.At.tair.db",
-  ID = "TAIR"
-)
-
-CC
-
-# Run topGO with elim algorithm and fisher test
-CC_test <- runTest(CC, algorithm = "elim", statistic = "fisher")
-CC_test
-
-# Keep the results
-CC_Table <- GenTable(CC,
-  weightFisher = CC_test,
-  orderBy = "elimFisher", ranksOf = "elimFisher", topNodes = sum(score(CC_test) < .05)
-)
-head(CC_Table)
-nrow(CC_Table)
-
-# CC_Table <- CC_Table[CC_Table$Annotated > 10, ]
-# CC_Table <- CC_Table[CC_Table$Annotated < 1001, ]
-# head(CC_Table)
-#
-# ### Recalculate p-value
-# CC_Table$pval <- p.adjust(CC_Table$weightFisher, method = c("BH"), n = nrow(CC_Table))
-# CC_Table$fdr <- p.adjust(CC_Table$weightFisher, method = c("fdr"), n = nrow(CC_Table))
-# CC_Table <- CC_Table[CC_Table$fdr < 0.05, ]
-#
-write.table(CC_Table, file = "topGO_CC_table.txt", sep = "\t", quote = F, col.names = T, row.names = F)
-
-png("topGO_CC.png", 1500, 1500)
-par(cex = 0.5)
-showSigOfNodes(CC, score(CC_test), useInfo = "def")
-dev.off()
+# 実行（BP/MF/CC）
+tab_BP <- run_topgo(gene_universe, "BP")
+tab_MF <- run_topgo(gene_universe, "MF")
+tab_CC <- run_topgo(gene_universe, "CC")
+# 出力: topGO_BP_table.txt / topGO_BP.png などができます
