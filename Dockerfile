@@ -71,7 +71,7 @@ RUN conda config --add channels bioconda
 # RUN /root/miniconda3/bin/conda config --add channels conda-forge
 RUN conda config --add channels conda-forge
 # RUN /root/miniconda3/bin/conda install -y -c bioconda hisat2 trimmomatic
-RUN conda install -y -c bioconda hisat2 trimmomatic subread
+RUN conda install -y -c bioconda fastp hisat2 subread
 # RUN /root/miniconda3/bin/conda install -y -c bioconda samtools==1.17
 RUN conda install -y -c bioconda samtools==1.17
 # RUN /root/miniconda3/bin/conda install -y -c bioconda bowtie2
