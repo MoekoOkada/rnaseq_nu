@@ -25,5 +25,5 @@ for file in *_R1.fastq.gz; do
         --html "../1_qc/${sample}_fastp.html" \
         --json "../1_qc/${sample}_fastp.json"
 
-    echo "# done ${sample } $(date)"
+    echo "# done ${sample} $(date)"
 done
